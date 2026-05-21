@@ -1,0 +1,23 @@
+# Promblem - power(x,n)
+# Time ans space complexity - 0(log n) & o(1)
+# Leetcode and diffculty level - 50 & medium 
+class Solution {
+public:
+    double myPow(double x, int n) {
+        long long power = n;
+
+        if(power < 0) {
+            x = 1 / x;
+            power = -power;
+        }
+        double ans = 1;
+        while(power > 0) {
+            if( power % 2 == 1) {
+                ans = ans * x;
+            }
+            x = x * x;
+            power = power / 2;
+        }
+        return ans;
+    }
+};
